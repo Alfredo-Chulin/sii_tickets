@@ -1,0 +1,232 @@
+/* style.css */
+
+/* Fondo con degradado verde pastel */
+body {
+    background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+    min-height: 100vh; /* Cambiamos height a min-height para evitar problemas de scroll */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0; /* Eliminamos el margen predeterminado del body */
+    padding: 20px; /* Añadimos un padding para evitar que el contenido toque los bordes */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Centramos el formulario sin afectar otros elementos */
+}
+
+/* Títulos centrados */
+h2 {
+    text-align: center;
+    color: #388e3c;
+    margin-top: 20px; /* Aseguramos que el título tenga un margen superior */
+}
+
+/* Inputs del formulario */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #81c784;
+}
+
+/* Botón verde con efecto hover */
+.btn-success {
+    background-color: #388e3c;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #2e7d32;
+}
+
+/* Links de navegación */
+.text-center a {
+    color: #388e3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el contenedor de desplazamiento */
+.scroll-container {
+    display: flex;
+    align-items: flex-start; /* Mantiene los tableros alineados arriba */
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    min-height: 150px;
+}
+
+/* Estilos para las tarjetas de tableros */
+
+/* Estilos para tableros vacíos */
+.tablero-card:empty {
+    min-height: 200px; /* Evita que los tableros vacíos se alarguen demasiado */
+    max-height: 250px; /* Fija un límite para que no se expandan más */
+}
+
+/* Estilos para el título "Mis Tableros" */
+h2.text-center {
+    margin-top: 20px; /* Ajustamos el margen superior para que el título sea visible */
+    margin-bottom: 10px; /* Margen inferior para separar el título del botón */
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative; /* Posicionamiento relativo para que se desplace con la página */
+    z-index: 1; /* Asegura que el título esté por encima de otros elementos */
+}
+
+/* Espaciado entre el título y los tableros */
+#tablerosContainer {
+    margin-top: 10px; /* Margen superior para separar el título y el botón de los tableros */
+    padding-top: 15px;
+}
+
+/* Estilos para el botón "Crear Tablero" */
+.crear-tablero-btn {
+    position: relative; /* Posicionamiento relativo para que se desplace con la página */
+    top: 0; /* Reiniciamos la posición vertical */
+    left: 0; /* Reiniciamos la posición horizontal */
+    z-index: 1050;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px; /* Margen inferior para separar el botón de los tableros */
+}
+
+.crear-tablero-btn:hover {
+    background-color: #218838;
+}
+
+/* Estilos para las tarjetas de tickets */
+.ticket-card {
+    background: white;
+    border: 2px solid #ddd; /* Borde más visible */
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.empty-placeholder {
+    min-height: 80px;
+    line-height: 80px;
+    text-align: center;
+    border: 2px dashed #ccc;
+    color: #999;
+    margin: 5px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+
+/* Evitar que los títulos de los tickets generen scroll horizontal */
+
+.tablero-card {
+    min-width: 250px;
+    max-width: 300px;
+    min-height: auto;
+    max-height: 600px;
+    overflow: hidden !important; /* 🔹 Evita que aparezca cualquier scroll */
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: grab;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* 🔹 Evitar que los tickets causen desbordamiento */
+/* 🔹 Mantener el tamaño fijo del contenedor de tickets */
+.tickets-container {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden !important; /* 🔥 Evita que los tickets generen scroll horizontal */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🔹 Fijar el tamaño de los tickets para evitar deformaciones */
+.ticket-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 200px;  /* 🔥 Fija un tamaño estándar */
+    max-width: 200px;
+    min-height: 120px;
+    padding: 10px;
+    overflow: hidden;
+    word-wrap: break-word; /* 🔥 Rompe palabras largas */
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔹 Evitar que los títulos de los tickets expandan el contenedor */
+.ticket-card strong {
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* 🔥 Agrega "..." si el texto es demasiado largo */
+    text-align: center;
+}
+
+/* 🔹 Asegurar que los botones no expandan el ticket */
+.ticket-card button {
+    max-width: 100%;
+}
+
+.contt_title_tab {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 200px;  /* 🔥 Fija un tamaño estándar */
+    max-width: 100%;
+    min-height: 100%;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    
+}
+
+
